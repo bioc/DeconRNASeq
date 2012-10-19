@@ -46,7 +46,7 @@ in next generation sequencing data. We demonstrat the feasibility and validity o
 using mRNA-Seq data mixed \emph{in-silico} at known concentrations. 
 
 We presented the workflow of DeconRNASeq package in this vignette. This tool allows processing of sequencing data for assessing the performance of linear models and estimating
-accurately mixing fractions for multiple species of tissues or cells, and is even able to provide accurate estimates for relatively rare cell types (<= 2%). We applied our approach 
+accurately mixing fractions for multiple species of tissues or cells, and is even able to provide accurate estimates for relatively rare cell types (<= 0.02). We applied our approach 
 to a realistic simulations involving complex mixtures of multiple tissues derived from an appropriate experimental design. 
 
 \section{File Structure Requirements}
@@ -98,7 +98,7 @@ attributes(signatures)[c(1,2)]
 After we initiated the parameters/arguments in the last section, we can perform the deconvolution analysis as following.
 <<Deconolution, fig=TRUE>>=
 DeconRNASeq(datasets, signatures, proportions, checksig=FALSE, 
-			known.prop = TRUE)
+			known.prop = TRUE, use.scale = TRUE)
 @
 
 The system we describe here assumes that all relevant cell types are accounted for in the cell-specific expression matrix. In reality, this might not always be the case, as complex tissue samples 
@@ -119,7 +119,7 @@ Thus, we also provide the plot of the condition number \emph{vs.} the number of 
 An example is provided by re-run the same experiment with the parameter \texttt{checksig} to be true.
 <<Condition_num, fig=TRUE, results=hide>>=
 DeconRNASeq(datasets, signatures, proportions, checksig=TRUE, 
-			known.prop = TRUE)
+			known.prop = TRUE, use.scale = TRUE)
 @ 
 
 \begin{thebibliography}{10}

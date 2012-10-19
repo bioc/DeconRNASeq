@@ -6,7 +6,7 @@
 		Perform nonnegative quadratic programming to get per-sample based globally optimized solutions for constituting cell types .
 }
 \usage{
-DeconRNASeq(datasets, signatures, proportions = NULL, checksig = FALSE, known.prop = FALSE)
+DeconRNASeq(datasets, signatures, proportions = NULL, checksig = FALSE, known.prop = FALSE, use.scale = TRUE)
 }
 \arguments{
   \item{datasets}{measured mixture data matrix, genes (transcripts) e.g. gene counts by samples, . The user can choose the appropriate counts, RPKM, FPKM etc.. }
@@ -14,6 +14,8 @@ DeconRNASeq(datasets, signatures, proportions = NULL, checksig = FALSE, known.pr
   \item{proportions}{proportion matrix from different tissue/cell types. }
   \item{checksig}{whether the condition number of signature matrix should be checked}
   \item{known.prop}{whether the proportions of cell types have been known in advanced for proof of concept}
+  \item{use.scale}{whether the data should be centered or scaled}
+
 }
 \details{
       Data in the originally measured mixuture sample matrix: datasets and reference matrix: signatures, need to be non-negative.
@@ -37,6 +39,7 @@ DeconRNASeq(datasets, signatures, proportions = NULL, checksig = FALSE, known.pr
 \keyword{DeconSeq}
 
 \examples{
+## Please refer our demo
 ##source("DeconRNASeq.R")
 ### multi_tissue: expression profiles for 10 mixing samples from multiple tissues 
 #data(multi_tissue.rda)  
@@ -45,7 +48,7 @@ DeconRNASeq(datasets, signatures, proportions = NULL, checksig = FALSE, known.pr
 #signatures <- x.signature.filtered.optimal[,2:6]
 #proportions <- fraction
 
-#DeconRNASeq(datasets, signatures, proportions, checksig=FALSE, known.prop = TRUE)
+#DeconRNASeq(datasets, signatures, proportions, checksig=FALSE, known.prop = TRUE, use.scale = TRUE)
 #
 }
 

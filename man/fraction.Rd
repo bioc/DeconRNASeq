@@ -3,7 +3,7 @@
 \alias{fraction}
 \title{mixing fractions for multi-tissues mixing samples}
 \description{
- A data frame providing the fractions from 5 tissues in the mixing samples
+ A data frame providing the fractions from multiple tissues in the mixing samples
 }
 \usage{fraction}
 \format{

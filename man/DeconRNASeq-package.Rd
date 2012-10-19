@@ -5,7 +5,7 @@
 \title{
 package DeconRNASeq contains function "DeconRNASeq", implementing the decomposition
 of RNA-Seq expression profilings of heterogeneous tissues into cell/tissue type specific expression and cell type concentration
-based on cell-type-specific reference measurements
+based on cell-type-specific reference measurements.
 }
 \description{
 Main function "DeconRNASeq" implements an nonnegative decomposition by quadratic programming as datasets = signature*A,

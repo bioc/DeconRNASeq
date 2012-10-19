@@ -3,7 +3,7 @@
 \alias{datasets}
 \title{data objects for liver and kidney mixing samples}
 \description{
- A data drame providing the RPKM of seven mixing samples.       
+ A data frame providing the RPKM of seven mixing samples.       
 }
 \usage{datasets}
 \format{

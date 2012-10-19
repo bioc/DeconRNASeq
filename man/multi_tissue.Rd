@@ -5,7 +5,7 @@
 \description{
  a list containing: 
  
-  1) x.data:a data drame providing the RPKM of nine mixing samples.   
+  1) x.data:a data frame providing the RPKM of nine mixing samples.   
   
   2) x.signatures: a data frame providing the expression values from pure brain, muscle, lung, liver and heart samples.
   

@@ -18,7 +18,7 @@
 #library(pcaMethods)
 #library(ggplot2)
 
-DeconRNASeq = function(datasets, signatures, proportions=NULL, checksig=FALSE, known.prop = FALSE ){
+DeconRNASeq = function(datasets, signatures, proportions=NULL, checksig=FALSE, known.prop = FALSE, use.scale = TRUE){
 
   if (is.null(datasets)) 
       stop(" Missing the mixture dataset, please provide a tab-delimited text file for mixture samples.")
@@ -67,7 +67,7 @@ DeconRNASeq = function(datasets, signatures, proportions=NULL, checksig=FALSE, k
      cat("\n PCA results indicate that the number of cell types in the mixtures =", numofmix, "\n" )
   }
   
-  if (checksig){
+  if (checksig && numofg >=40){
       #generate the steps to check the condition number of the signature matrix 
       step <- seq(20,numofg, by=20) #every 20 genes
       #step-wise compute the condition number for the subsets of sigature
@@ -89,7 +89,12 @@ DeconRNASeq = function(datasets, signatures, proportions=NULL, checksig=FALSE, k
   Numofx <- ncol(x.signature)
 
   ## quadratic programming preparation
-  AA <- scale(x.signature)
+  if (use.scale) {
+     AA <- scale(x.signature)
+  }
+  else {
+     AA <- x.signature
+  }
 
   EE <- rep(1, Numofx)
   FF <- 1
@@ -101,7 +106,9 @@ DeconRNASeq = function(datasets, signatures, proportions=NULL, checksig=FALSE, k
   for (i in colnames(x.subdata)) {
 
     BB <- x.subdata[,i]
-    BB <- scale(BB)
+    if (use.scale) {
+       BB <- scale(BB)
+    }
   
     out <- lsei(AA, BB, EE, FF, GG, HH)
 

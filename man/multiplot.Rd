@@ -28,9 +28,6 @@ multiplot(..., plotlist = NULL, cols)
         Joseph D. Szustakowski \email{joseph.szustakowski@novartis.com}
 }
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
 
 ## The function is currently defined as
 function (..., plotlist = NULL, cols) 
