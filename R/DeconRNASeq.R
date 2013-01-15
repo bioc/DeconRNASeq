@@ -11,7 +11,7 @@
 #known.prop: boolean variable to check whether the fractions are available or not
 
 #VALUE:
-#out.all: mix matrix
+#out.all: mix matrix, pca, RMSE
 ################################################################
 
 #library(limSolve)
