@@ -6,15 +6,16 @@
 		Perform nonnegative quadratic programming to get per-sample based globally optimized solutions for constituting cell types .
 }
 \usage{
-DeconRNASeq(datasets, signatures, proportions = NULL, checksig = FALSE, known.prop = FALSE, use.scale = TRUE)
+DeconRNASeq(datasets, signatures, proportions = NULL, checksig = FALSE, known.prop = FALSE, use.scale = TRUE, fig = TRUE)
 }
 \arguments{
   \item{datasets}{measured mixture data matrix, genes (transcripts) e.g. gene counts by samples, . The user can choose the appropriate counts, RPKM, FPKM etc.. }
   \item{signatures}{signature matrix from different tissue/cell types, genes (transcripts) by cell types. For gene counts, the user can choose the appropriate counts, RPKM, FPKM etc.. }
   \item{proportions}{proportion matrix from different tissue/cell types. }
-  \item{checksig}{whether the condition number of signature matrix should be checked}
-  \item{known.prop}{whether the proportions of cell types have been known in advanced for proof of concept}
-  \item{use.scale}{whether the data should be centered or scaled}
+  \item{checksig}{whether the condition number of signature matrix should be checked, efault = FALSE}
+  \item{known.prop}{whether the proportions of cell types have been known in advanced for proof of concept, default = FALSE}
+  \item{use.scale}{whether the data should be centered or scaled, default = TRUE}
+  \item{fig}{whether to generate the scatter plots of the estimated cell fractions vs. the true proportions of cell types, default = TRUE}
 
 }
 \details{
@@ -25,6 +26,7 @@ DeconRNASeq(datasets, signatures, proportions = NULL, checksig = FALSE, known.pr
       Function DeconRNA-Seq returns a list of results
 	\item{out.all}{estimated cell type fraction matrix for all the mixture samples}
       \item{out.pca}{svd calculated PCA on the mixture samples to estimate the number of pure sources according to the cumulative R2}
+	\item{out.rmse}{averaged root mean square error (RMSE)) measuring the differences between fractions predicted by our model and the truth fraction matrix for all the tissue types}
 }
 \references{
       Gong, T., et al. (2011) 
