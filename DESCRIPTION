@@ -1,7 +1,7 @@
 Package: DeconRNASeq
 Type: Package
 Title: Deconvolution of Heterogeneous Tissue Samples for mRNA-Seq data
-Version: 1.26.0
+Version: 1.27.0
 Date: 2013-01-22
 Author: Ting Gong <tinggong@gmail.com> Joseph D. Szustakowski
         <joseph.szustakowski@novartis.com>
